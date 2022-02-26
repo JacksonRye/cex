@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { blueGrey, green, lightBlue, purple } from "@mui/material/colors";
+import { Button } from "@mui/material";
+import NavBar from "./components/NavBar";
+import Hero from "./components/Hero";
+import Header from "./components/Header"
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: lightBlue[200],
+
+    },
+    secondary: {
+      main: blueGrey[700],
+    },
+  },
+});
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <ThemeProvider theme={theme}>
+    {/* <NavBar /> */}
+    <Hero />
+    {/* <Header /> */}
+  </ThemeProvider>;
 }
 
 export default App;
